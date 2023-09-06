@@ -33,6 +33,7 @@ body {
   letter-spacing: 30;
   background-color: var(--background-color);
   color: var(--grey-dark-text);
+  height: 100dvh;
 }
 
 button {
@@ -50,8 +51,4 @@ a {
 
 .white-text {
   color: var(--primary-white);
-}
-
-.black-text {
-  color: var(--grey-dark-text);
 }

@@ -1,0 +1,37 @@
+.tarjetas-container {
+  padding: 0 var(--page-x-padding);
+}
+
+.tarjetas-dashboard {
+  margin: 5% 0;
+  padding: 10px 20px;
+  height: 20dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10%;
+  background-color: var(--primary-white);
+  border-radius: 10px;
+}
+
+.tarjetas-button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.tarjetas-button-container button {
+  background-color: var(--primary-white);
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+}
+
+.term-card-container {
+  display: flex;
+  gap: 40px;
+}
+

@@ -1,13 +1,15 @@
-<div class="tarjetas-dashboard">
-  <h2 class="black-text">Vuelve donde lo dejaste</h2>
-  <p>{{currentTerm}} - Session {{currentSession}}</p>
-  <div>
-    <button><app-icon iconName="play"></app-icon>Reproducción ordenada</button>
-    <button><app-icon iconName="aleatorio"></app-icon>Aleatorio</button>
-    <button><app-icon iconName="next"></app-icon>Siguiente sessión</button>
+<div class="tarjetas-container">
+  <div class="tarjetas-dashboard">
+    <h2>Vuelve donde lo dejaste</h2>
+    <p>{{currentTerm}} - Session {{currentSession}}</p>
+    <div class="tarjetas-button-container">
+      <button><app-icon iconName="play"></app-icon>Reproducción ordenada</button>
+      <button><app-icon iconName="aleatorio"></app-icon>Aleatorio</button>
+      <button><app-icon iconName="next"></app-icon>Siguiente sessión</button>
+    </div>
   </div>
-</div>
-<h2 class="black-text">Temario</h2>
-<div class="term-cards" *ngFor="let term of terms" >
-  <app-term-card term={{term.number}} completedSessions={{term.completedSessions}} totalSessions={{term.totalSessions}}></app-term-card>
+  <h2>Temario</h2>
+  <div class="term-card-container">
+    <app-term-card *ngFor="let term of terms" term={{term.number}} completedSessions={{term.completedSessions}} totalSessions={{term.totalSessions}}></app-term-card>
+  </div>
 </div>
