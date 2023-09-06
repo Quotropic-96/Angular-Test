@@ -1,6 +1,6 @@
 <div class="tarjetas-dashboard">
   <h2 class="black-text">Vuelve donde lo dejaste</h2>
-  <p>{{term}} - Session {{session}}</p>
+  <p>{{currentTerm}} - Session {{currentSession}}</p>
   <div>
     <button><app-icon iconName="play"></app-icon>Reproducción ordenada</button>
     <button><app-icon iconName="aleatorio"></app-icon>Aleatorio</button>
@@ -8,4 +8,6 @@
   </div>
 </div>
 <h2 class="black-text">Temario</h2>
-<div class="term-cards"></div>
+<div class="term-cards" *ngFor="let term of terms" >
+  <app-term-card term={{term.number}} completedSessions={{term.completedSessions}} totalSessions={{term.totalSessions}}></app-term-card>
+</div>
