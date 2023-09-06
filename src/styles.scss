@@ -7,35 +7,50 @@
   --grey-dark-icons: #4F4F4F;
   --grey-dark-text: #3B3B3B;
   --background-color: #F0F0F0;
+  --page-x-padding: 10%
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   font-family: 'Poppins', sans-serif;
-  size: 36px;
-  letter-spacing: 54px;
+  size: 36;
+  letter-spacing: 54;
 }
 
 h2 {
   font-family: 'Poppins', sans-serif;
-  size: 24px;
-  letter-spacing: 36px;
+  size: 24;
+  letter-spacing: 36;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  size: 20px;
-  letter-spacing: 30px;
+  size: 20;
+  letter-spacing: 30;
+  background-color: var(--background-color);
 }
 
 button {
   font-family: 'Roboto', sans-serif;
-  size: 20px;
-  letter-spacing: 30px;
+  size: 20;
+  letter-spacing: 30;
   font-weight: bold;
 }
 
 a {
   font-family: 'Roboto', sans-serif;
-  size: 20px;
-  letter-spacing: 30px;
+  size: 20;
+  letter-spacing: 30;
+}
+
+.white-text {
+  color: var(--primary-white);
+}
+
+.black-text {
+  color: var(--grey-dark-text);
 }

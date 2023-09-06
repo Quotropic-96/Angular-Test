@@ -1,0 +1,31 @@
+.main-navbar {
+  background-color: var(--secondary-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% var(--page-x-padding);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px var(--grey-dark-icons);
+  position: relative;
+  top: 0;
+}
+
+button:hover {
+  box-shadow: none;
+  top: 3px;
+}
