@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TarjetasComponent } from './tarjetas/tarjetas.component';
+import { IconComponent } from './icon/icon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TarjetasComponent
+    TarjetasComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
