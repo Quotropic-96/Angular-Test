@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./tarjetas.component.scss']
 })
 export class TarjetasComponent {
-  
+  term = '2º Trimestre'
+  session = '25, Ordinales, Fraccionales y Decimales';
 }
