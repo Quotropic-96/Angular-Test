@@ -10,6 +10,9 @@
         <h2>Sessiones del {{termNumber}}º trimestre</h2>
         <div class="term-sessions-progress">{{completedSessions}}/{{totalSessions}}</div>
       </div>
+      <div class="term-sessions-list">
+        <app-session-card *ngFor="let session of sessions" [session]="session"></app-session-card>
+      </div>
     </div>
   </div>
 </div>

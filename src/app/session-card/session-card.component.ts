@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-session-card',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./session-card.component.scss']
 })
 export class SessionCardComponent {
-
+  @Input() session: any;
 }

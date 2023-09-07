@@ -15,49 +15,49 @@ export class TermDetailComponent implements OnInit {
     {
       sessionNumber: 22,
       sessionTitle: 'Ordinales',
-      sessionState: 'Done',
+      isDone: true,
       isNext: false
     },
     {
       sessionNumber: 23,
       sessionTitle: 'Ordinales y fracciones',
-      sessionState: 'Done',
+      isDone: true,
       isNext: false
     },
     {
       sessionNumber: 24,
       sessionTitle: 'Fracciones y decimales',
-      sessionState: 'Done',
+      isDone: true,
       isNext: false
     },
     {
       sessionNumber: 25,
       sessionTitle: 'Ordinales, fracciones y decimales',
-      sessionState: 'Pending',
+      isDone: false,
       isNext: true
     },
     {
       sessionNumber: 26,
       sessionTitle: 'Ordinales, fracciones, decimales y geometría',
-      sessionState: 'Pending',
+      isDone: false,
       isNext: false
     },
     {
       sessionNumber: 27,
       sessionTitle: 'Geometría y fracciones',
-      sessionState: 'Pending',
+      isDone: false,
       isNext: false
     },
     {
       sessionNumber: 28,
       sessionTitle: 'Fracciones, decimales y gemoetría',
-      sessionState: 'Pending',
+      isDone: false,
       isNext: false
     },
     {
       sessionNumber: 29,
       sessionTitle: 'Ordinales, Fracciones, Decimales, Gemoetría, Numeros Enteros',
-      sessionState: 'Pending',
+      isDone: false,
       isNext: false
     }
   ]
