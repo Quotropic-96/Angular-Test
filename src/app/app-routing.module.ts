@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TarjetasComponent } from './tarjetas/tarjetas.component';
-import { TermDetailComponent } from './term-detail/term-detail.component';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { TermDetailComponent } from './components/term-detail/term-detail.component';
 
 const routes: Routes = [
   { path: '', component: TarjetasComponent },
