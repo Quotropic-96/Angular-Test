@@ -5,7 +5,7 @@ import { TermDetailComponent } from './term-detail/term-detail.component';
 
 const routes: Routes = [
   { path: '', component: TarjetasComponent },
-  { path: 'term-detail', component: TermDetailComponent },
+  { path: 'term-detail/:id', component: TermDetailComponent },
 ];
 
 @NgModule({
