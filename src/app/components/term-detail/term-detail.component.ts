@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-term-detail',
@@ -62,7 +63,7 @@ export class TermDetailComponent implements OnInit {
     }
   ]
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -72,5 +73,9 @@ export class TermDetailComponent implements OnInit {
       this.completedSessions = 20;
       this.totalSessions = 50;
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
