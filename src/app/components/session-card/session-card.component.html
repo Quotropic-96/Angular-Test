@@ -1,16 +1,16 @@
-<div class="session-card">
+<div class="session-card" [class.next-session] = "session.isNext">
   <div class="session-info">
-    <p>{{session.sessionNumber}}</p>
+    <p class="session-number">{{session.sessionNumber}}</p>
     <p>{{session.sessionTitle}}</p>
   </div>
   <div class="session-actions">
-    <app-icon *ngIf="session.isDone; else renderPending" iconName="no-visto"></app-icon>
+    <app-icon *ngIf="session.isDone; else renderPending" iconName="visto"></app-icon>
     <ng-template #renderPending>
-      <app-icon *ngIf="!session.isNext; else renderNextSession" iconName="visto"></app-icon>
+      <app-icon *ngIf="!session.isNext; else renderNextSession" iconName="no-visto"></app-icon>
       <ng-template #renderNextSession>
         <div class="next-session-icons">
           <app-icon iconName="aleatorio"></app-icon>
-          <app-icon iconName="play"></app-icon>
+          <app-icon class="play-next-session" iconName="play"></app-icon>
         </div>
       </ng-template>
     </ng-template>

@@ -1,0 +1,30 @@
+.session-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 40px;
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.session-info .session-number {
+  font-weight: bold;
+}
+
+.next-session-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.next-session {
+  background-color: var(--accent);
+}
+
+.play-next-session {
+  background-color: var(--primary-white);
+  border-radius: 5px;
+}
