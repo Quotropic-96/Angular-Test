@@ -1,1 +1,15 @@
-<p>term-detail works!</p>
+<div class="term-detail">
+  <div class="term-detail-menu">
+    <app-icon iconName="arrow-left"></app-icon>
+    <p>Atrás</p>
+  </div>
+  <div class="term-detail-content">
+    <app-term-card [term]=termNumber [completedSessions]=completedSessions [totalSessions]=totalSessions></app-term-card>
+    <div class="term-sessions">
+      <div class="term-sessions-header">
+        <h2>Sessiones del {{termNumber}}º trimestre</h2>
+        <div class="term-sessions-progress">{{completedSessions}}/{{totalSessions}}</div>
+      </div>
+    </div>
+  </div>
+</div>
