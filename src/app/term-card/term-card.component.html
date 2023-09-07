@@ -3,5 +3,16 @@
     <h2>{{term}}º Trimestre</h2>
     <p>{{completedSessions}}/{{totalSessions}} sesiones</p>
   </div>
-  <app-icon iconName="visto" />
+  <svg class="progress-bar" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <circle class="progress-background" cx="50" cy="50" r="40" />
+    <ng-container *ngIf="isFullCircle; else arc">
+      <circle class="progress-indicator" cx="50" cy="50" r="40" />
+    </ng-container>
+    <ng-template #arc>
+      <path
+        class="progress-indicator"
+        [attr.d]="generateProgressPath()"
+      />
+    </ng-template>
+  </svg> 
 </div>

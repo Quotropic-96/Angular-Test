@@ -10,6 +10,6 @@
   </div>
   <h2>Temario</h2>
   <div class="term-card-container">
-    <app-term-card *ngFor="let term of terms" term={{term.number}} completedSessions={{term.completedSessions}} totalSessions={{term.totalSessions}}></app-term-card>
+    <app-term-card *ngFor="let term of terms" [term]=term.number [completedSessions]=term.completedSessions [totalSessions]=term.totalSessions></app-term-card>
   </div>
 </div>
