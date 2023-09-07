@@ -8,6 +8,7 @@ import { IconComponent } from './icon/icon.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TermCardComponent } from './term-card/term-card.component';
 import { TermDetailComponent } from './term-detail/term-detail.component';
+import { SessionCardComponent } from './session-card/session-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TermDetailComponent } from './term-detail/term-detail.component';
     IconComponent,
     NavbarComponent,
     TermCardComponent,
-    TermDetailComponent
+    TermDetailComponent,
+    SessionCardComponent
   ],
   imports: [
     BrowserModule,
