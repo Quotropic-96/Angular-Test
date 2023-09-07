@@ -21,11 +21,11 @@ export class TermCardComponent {
       return '';
     }
 
-    const radius = 40; // Radius of the circle
-    const centerX = 50; // X-coordinate of the circle center
-    const centerY = 50; // Y-coordinate of the circle center
-    const startAngle = 0; // Start angle (top of the circle)
-    const endAngle = (360 * this.completedSessions) / this.totalSessions; // Calculate the end angle
+    const radius = 40;
+    const centerX = 50;
+    const centerY = 50;
+    const startAngle = 0;
+    const endAngle = 360 * this.completedSessions / this.totalSessions;
 
     // Calculate the coordinates of the arc's start and end points
     const startX = centerX + radius * Math.cos((startAngle * Math.PI) / 180);
