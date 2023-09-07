@@ -1,0 +1,34 @@
+.term-detail {
+  padding: 0 var(--page-x-padding);
+  height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5%;
+  margin-top: 3%;
+}
+
+.term-detail-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.term-detail-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.term-detail-summary {
+  width: 30%;
+}
+
+.term-sessions {
+  border-radius: 10px;
+  background-color: var(--primary-white);
+  padding: 0 5%;
+}
+
+.term-sessions-header {
+  
+}
