@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TarjetasComponent } from './tarjetas/tarjetas.component';
+import { TermDetailComponent } from './term-detail/term-detail.component';
 
 const routes: Routes = [
-  {
-    path: '', component: TarjetasComponent
-  }
+  { path: '', component: TarjetasComponent },
+  { path: 'term-detail', component: TermDetailComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
