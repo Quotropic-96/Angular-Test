@@ -8,22 +8,10 @@
   box-shadow: 0 3px var(--grey-medium);
 }
 
-.progress-bar {
-  width: 100px;
-  height: 100px;
-}
-
 .progress-background {
   fill: var(--background-color);
-  stroke: none;
-  stroke-width: 8;
 }
 
 .progress-indicator {
   fill: var(--progress);
-  stroke: none;
-  stroke-width: 8;
-  stroke-linecap: round;
-  transform: rotate(-90deg);
-  transform-origin: center;
 }
