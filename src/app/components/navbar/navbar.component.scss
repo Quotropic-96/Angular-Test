@@ -20,9 +20,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 3px var(--grey-dark-icons);
+  box-shadow: 0 3px var(--grey-medium);
   position: relative;
   top: 0;
+  background-color: var(--primary-white);
 }
 
 button:hover {

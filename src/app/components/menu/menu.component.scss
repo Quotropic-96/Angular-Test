@@ -29,4 +29,33 @@
   box-shadow: 0 0 30px 0 var(--grey-dark-text);
 }
 
+.dropdown-container {
+  position: relative;
+  margin-bottom: 30px; /* Adjust for spacing */
+}
+
+.dropdown-label {
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  background-color: var(--primary-white);
+  padding: 0 5px;
+  font-size: 12px;
+  color: var(--grey-medium);
+}
+
+.custom-dropdown {
+  width: 70%;
+  border: 1px solid var(--grey-light);
+  padding: 15px;
+  font-size: 14px;
+  color: var(--grey-dark-text);
+}
+
+.cancel-button {
+  background-color: var(--primary-white);
+  border: none;
+  text-decoration: underline;
+  font-weight: bold;
+}
 
