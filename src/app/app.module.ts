@@ -12,6 +12,7 @@ import { SessionCardComponent } from './components/session-card/session-card.com
 import { ButtonComponent } from './components/button/button.component';
 import { BeforeStartComponent } from './views/before-start/before-start.component';
 import { MenuService } from './state-management/menu.service';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MenuService } from './state-management/menu.service';
     TermDetailComponent,
     SessionCardComponent,
     ButtonComponent,
-    BeforeStartComponent
+    BeforeStartComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

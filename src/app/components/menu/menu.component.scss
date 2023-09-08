@@ -1,0 +1,12 @@
+.menu {
+  display: none;
+  // transition: transform 0.3s ease-in-out;
+  height: 100dvh;
+  width: 40vw;
+  background-color: var(--primary-white);
+}
+
+.menu.open {
+  // transform: translateX(0);
+  display: block;
+}

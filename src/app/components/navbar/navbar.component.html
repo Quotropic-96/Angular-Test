@@ -2,7 +2,7 @@
   <h1 class="white-text">Tarjetas</h1>
   <ul>
     <li><button><app-icon iconName="suite"></app-icon></button></li>
-    <li><button><app-icon iconName="config"></app-icon></button></li>
+    <li><button (click)="toggleMenu()" *ngIf="!(menuService.isMenuOpen$ | async)"><app-icon iconName="config"></app-icon></button></li>
     <li><button><app-icon iconName="log-out"></app-icon></button></li>
   </ul>
 </nav>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuService } from 'src/app/state-management/menu.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(public menuService: MenuService) {}
+
+  toggleMenu() {
+    this.menuService.toggleMenu();
+  }
 }
