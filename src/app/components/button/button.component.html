@@ -1,0 +1,12 @@
+<a
+  [routerLink]="toUrl"
+  [ngClass]="{
+    'button-primary-active': isPrimary && isActive,
+    'button-secondary-active': !isPrimary && isActive,
+    'button-primary-inactive': isPrimary && !isActive,
+    'button-secondary-inactive': !isPrimary && !isActive
+  }"
+>
+  <app-icon *ngIf="isIcon" [iconName]="iconName"></app-icon>
+  {{ buttonText }}
+</a>

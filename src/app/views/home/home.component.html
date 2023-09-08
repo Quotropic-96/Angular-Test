@@ -1,15 +1,38 @@
 <div class="home-container">
   <div class="home-dashboard">
     <h2>Vuelve donde lo dejaste</h2>
-    <p>{{currentTerm}} - Session {{currentSession}}</p>
+    <p>{{ currentTerm }} - Session {{ currentSession }}</p>
     <div class="home-button-container">
-      <button><app-icon iconName="play"></app-icon>Reproducción ordenada</button>
-      <button><app-icon iconName="aleatorio"></app-icon>Aleatorio</button>
-      <button><app-icon iconName="next"></app-icon>Siguiente sessión</button>
+      <app-button
+        [isPrimary]="true"
+        [isActive]="true"
+        [isIcon]="true"
+        iconName="play-white"
+        buttonText="Reproducción ordenada"
+      ></app-button>
+      <app-button
+        [isPrimary]="false"
+        [isActive]="true"
+        [isIcon]="true"
+        iconName="aleatorio"
+        buttonText="Aleatorio"
+      ></app-button>
+      <app-button
+        [isPrimary]="false"
+        [isActive]="true"
+        [isIcon]="true"
+        iconName="next"
+        buttonText="Siguiente sesión"
+      ></app-button>
     </div>
   </div>
   <h2>Temario</h2>
   <div class="term-card-container">
-    <app-term-card *ngFor="let term of terms" [term]=term.number [completedSessions]=term.completedSessions [totalSessions]=term.totalSessions></app-term-card>
+    <app-term-card
+      *ngFor="let term of terms"
+      [term]="term.number"
+      [completedSessions]="term.completedSessions"
+      [totalSessions]="term.totalSessions"
+    ></app-term-card>
   </div>
 </div>

@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TermCardComponent } from './components/term-card/term-card.component';
 import { TermDetailComponent } from './views/term-detail/term-detail.component';
 import { SessionCardComponent } from './components/session-card/session-card.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SessionCardComponent } from './components/session-card/session-card.com
     NavbarComponent,
     TermCardComponent,
     TermDetailComponent,
-    SessionCardComponent
+    SessionCardComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
