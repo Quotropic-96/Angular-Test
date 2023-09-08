@@ -8,30 +8,35 @@
       <h2>Configuración</h2>
     </div>
     <form action="#">
-      <div class="dropdown-container">
-        <label for="idioma" class="dropdown-label">Idioma</label>
-        <select id="idioma" class="custom-dropdown">
-          <option value="esp">Español</option>
-          <option value="eng">English</option>
-          <option value="cat">Català</option>
-        </select>
+      <div class="input-container">
+        <div class="dropdown-container">
+          <label for="idioma" class="dropdown-label">Idioma</label>
+          <select id="idioma" class="custom-dropdown">
+            <option value="esp">Español</option>
+            <option value="eng">English</option>
+            <option value="cat">Català</option>
+          </select>
+        </div>
+        
+        <div class="dropdown-container">
+          <label for="curso" class="dropdown-label">Curso</label>
+          <select id="curso" class="custom-dropdown">
+            <option value="3i">3º Infantil</option>
+            <option value="4i">4º Infantil</option>
+            <option value="5i">5º Infantil</option>
+          </select>
+        </div>
       </div>
-      
-      <div class="dropdown-container">
-        <label for="curso" class="dropdown-label">Curso</label>
-        <select id="curso" class="custom-dropdown">
-          <option value="3i">3º Infantil</option>
-          <option value="4i">4º Infantil</option>
-          <option value="5i">5º Infantil</option>
-        </select>
+
+      <div class="form-buttons">
+        <app-button
+          [isPrimary]="true"
+          [isActive]="true"
+          [isIcon]="false"
+          buttonText="Guardar cambios"
+        ></app-button>
+        <button class="cancel-button">Cerrar sin guardar</button>
       </div>
-      <app-button
-        [isPrimary]="true"
-        [isActive]="true"
-        [isIcon]="false"
-        buttonText="Guardar cambios"
-      ></app-button>
-      <button class="cancel-button">Cerrar sin guardar</button>
     </form>
   </div>
 </div>
