@@ -8,9 +8,13 @@ import { MenuService } from 'src/app/state-management/menu.service';
 })
 export class NavbarComponent {
 
-  constructor(public menuService: MenuService) {}
+  constructor(private menuService: MenuService) {}
 
   toggleMenu() {
     this.menuService.toggleMenu();
+  }
+
+  isMenuOpen() {
+    return this.menuService.isMenuOpen$;
   }
 }

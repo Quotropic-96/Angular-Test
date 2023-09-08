@@ -7,10 +7,13 @@ import { MenuService } from 'src/app/state-management/menu.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  constructor(public menuService: MenuService) {}
+  constructor(private menuService: MenuService) {}
 
   closeMenu() {
     this.menuService.closeMenu();
-    console.log('Closing menu')
+  }
+
+  isMenuOpen() {
+    return this.menuService.isMenuOpen$;
   }
 }
