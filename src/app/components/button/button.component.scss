@@ -5,14 +5,14 @@ a {
   align-items: center;
   gap: 5px;
   font-weight: bold;
-  height: 30px;
+  height: 40px;
 }
 
 .button-primary-active {
   color: var(--primary-white);
   background-color: var(--accent);
   border: 2px solid var(--accent);
-  box-shadow: 2px solid var(--accent-shadow);
+  box-shadow: 0 3px var(--accent-shadow);
 }
 
 .button-secondary-active {
@@ -25,7 +25,7 @@ a {
   color: var(--grey-dark-text);
   background-color: var(--grey-medium);
   border: 2px solid var(--grey-medium);
-  box-shadow: 2px solid var(--grey-dark-icons);
+  box-shadow: 0 3px var(--grey-dark-icons);
 }
 
 .button-secondary-inactive {

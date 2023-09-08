@@ -5,6 +5,7 @@
   --accent: #F26C48;
   --accent-shadow: #D35435;
   --progress: #ED993F;
+  --grey-light: #DDDDDD;
   --grey-medium: #656565;
   --grey-dark-icons: #4F4F4F;
   --grey-dark-text: #3B3B3B;
@@ -15,6 +16,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -55,4 +57,8 @@ a {
 
 .white-text {
   color: var(--primary-white);
+}
+
+.bold {
+  font-weight: bold;
 }
