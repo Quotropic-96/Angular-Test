@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Settings } from 'src/app/models/settings.interface';
-import { MenuService } from 'src/app/services/menu.service';
+import { MenuService } from 'src/app/services/menu-service/menu.service';
 
 @Component({
   selector: 'app-menu',

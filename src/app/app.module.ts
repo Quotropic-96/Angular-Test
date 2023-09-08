@@ -12,7 +12,7 @@ import { TermDetailComponent } from './views/term-detail/term-detail.component';
 import { SessionCardComponent } from './components/session-card/session-card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { BeforeStartComponent } from './views/before-start/before-start.component';
-import { MenuService } from './services/menu.service';
+import { MenuService } from './services/menu-service/menu.service';
 import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
