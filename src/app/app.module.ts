@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,7 @@ import { TermDetailComponent } from './views/term-detail/term-detail.component';
 import { SessionCardComponent } from './components/session-card/session-card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { BeforeStartComponent } from './views/before-start/before-start.component';
-import { MenuService } from './state-management/menu.service';
+import { MenuService } from './services/menu.service';
 import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MenuComponent } from './components/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

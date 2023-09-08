@@ -87,9 +87,9 @@ form {
   border: 1px solid var(--secondary-green);
 }
 
-.custom-dropdown option:checked {
-  border: 1px solid #007bff;
-}
+// .custom-dropdown option:checked {
+//   border: 1px solid #007bff;
+// }
 
 .form-buttons {
   width: 100%;
@@ -98,7 +98,21 @@ form {
   gap: 20px;
 }
 
+.submit-button {
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px 20px;
+  font-weight: bold;
+  height: 50px;
+  color: var(--primary-white);
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: 0 3px var(--accent-shadow);
+}
+
 .cancel-button {
+  font-size: 15px;
+  margin-top: 20px;
   background-color: var(--primary-white);
   border: none;
   text-decoration: underline;

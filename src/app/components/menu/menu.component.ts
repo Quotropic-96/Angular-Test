@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { MenuService } from 'src/app/state-management/menu.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Settings } from 'src/app/models/settings.interface';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,10 +9,41 @@ import { MenuService } from 'src/app/state-management/menu.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  constructor(private menuService: MenuService) {}
+  settingsForm: FormGroup = new FormGroup({
+    idioma: new FormControl(''),
+    curso: new FormControl('')
+  });
+
+  settings: Settings | null = null;
+
+  constructor(private menuService: MenuService) {};
+
+  ngOnInit() {
+    this.getSettings();
+  }
+
+  getSettings() {
+    this.settings = this.menuService.getSettings();
+    if (this.settings) {
+      this.settingsForm.patchValue(this.settings);
+    } else {
+      console.warn('Service unavailable');
+    }
+  }
+
+  onSubmit(form: FormGroup) {
+    if (form.valid) {
+      const formData: Settings = form.value;
+      this.menuService.saveSettings(formData);
+      this.closeMenu();
+    } else {
+      // Handle form validation errors or display a message to the user
+    }
+  }
 
   closeMenu() {
     this.menuService.closeMenu();
+    this.getSettings();
   }
 
   isMenuOpen() {
