@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tarjetas',
-  templateUrl: './tarjetas.component.html',
-  styleUrls: ['./tarjetas.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class TarjetasComponent {
+export class HomeComponent {
   currentTerm = '2º Trimestre'
   currentSession = '25, Ordinales, Fraccionales y Decimales';
 

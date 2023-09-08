@@ -1,8 +1,8 @@
-.tarjetas-container {
+.home-container {
   padding: 0 var(--page-x-padding);
 }
 
-.tarjetas-dashboard {
+.home-dashboard {
   margin: 5% 0;
   padding: 10px 20px;
   height: 20dvh;
@@ -14,12 +14,12 @@
   border-radius: 10px;
 }
 
-.tarjetas-button-container {
+.home-button-container {
   display: flex;
   gap: 20px;
 }
 
-.tarjetas-button-container button {
+.home-button-container button {
   background-color: var(--primary-white);
   border: 2px solid var(--accent);
   border-radius: 5px;
