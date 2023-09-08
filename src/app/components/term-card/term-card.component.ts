@@ -13,7 +13,7 @@ export class TermCardComponent {
   isFullCircle: boolean = false;
 
   graphSize: number = 60;
-  iconSize: number = 50;
+  iconSize: number = 30;
   radius: number = this.graphSize / 2;
   centerX: number = this.graphSize / 2;
   centerY: number = this.graphSize / 2;
