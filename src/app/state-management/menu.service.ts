@@ -8,18 +8,18 @@ export class MenuService {
   private isMenuOpenSubject = new BehaviorSubject<boolean>(false);
   isMenuOpen$ = this.isMenuOpenSubject.asObservable();
 
-  private isBlurActiveSubject = new BehaviorSubject<boolean>(false);
-  isBlurActive$ = this.isBlurActiveSubject.asObservable();
+  // private isBlurActiveSubject = new BehaviorSubject<boolean>(false);
+  // isBlurActive$ = this.isBlurActiveSubject.asObservable();
 
   constructor() {}
 
   toggleMenu() {
     this.isMenuOpenSubject.next(!this.isMenuOpenSubject.value);
-    this.isBlurActiveSubject.next(!this.isBlurActiveSubject.value);
+    // this.isBlurActiveSubject.next(!this.isBlurActiveSubject.value);
   }
 
   closeMenu() {
     this.isMenuOpenSubject.next(false);
-    this.isBlurActiveSubject.next(false);
+    // this.isBlurActiveSubject.next(false);
   }
 }

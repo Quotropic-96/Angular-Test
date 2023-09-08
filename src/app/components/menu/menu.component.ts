@@ -8,4 +8,9 @@ import { MenuService } from 'src/app/state-management/menu.service';
 })
 export class MenuComponent {
   constructor(public menuService: MenuService) {}
+
+  closeMenu() {
+    this.menuService.closeMenu();
+    console.log('Closing menu')
+  }
 }
