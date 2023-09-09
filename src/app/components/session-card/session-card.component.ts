@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Session } from 'src/app/models/session.interface';
+import { UserSession } from 'src/app/models/userSession.interface';
 
 @Component({
   selector: 'app-session-card',
@@ -7,7 +7,7 @@ import { Session } from 'src/app/models/session.interface';
   styleUrls: ['./session-card.component.scss'],
 })
 export class SessionCardComponent {
-  @Input() session: Session = {
+  @Input() session: UserSession = {
     sessionNumber: 0,
     sessionTitle: '',
     isDone: false,

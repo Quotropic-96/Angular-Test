@@ -1,7 +1,9 @@
-export const terms = [
+import { Term } from "../models/term.interface";
+
+export const terms: Term[] = [
   {
     _id: '3i-1',
-    course: '3i',
+    courseId: '3i',
     termNumber: 1,
     totalSessions: 20,
     sessions: [
@@ -29,7 +31,7 @@ export const terms = [
   },
   {
     _id: '3i-2',
-    course: '3i',
+    courseId: '3i',
     termNumber: 2,
     totalSessions: 20,
     sessions: [
@@ -57,7 +59,7 @@ export const terms = [
   },
   {
     _id: '3i-3',
-    course: '3i',
+    courseId: '3i',
     termNumber: 3,
     totalSessions: 20,
     sessions: [
@@ -85,7 +87,7 @@ export const terms = [
   },
   {
     _id: '4i-1',
-    course: '4i',
+    courseId: '4i',
     termNumber: 1,
     totalSessions: 20,
     sessions: [
@@ -113,7 +115,7 @@ export const terms = [
   },
   {
     _id: '4i-2',
-    course: '4i',
+    courseId: '4i',
     termNumber: 2,
     totalSessions: 20,
     sessions: [
@@ -141,7 +143,7 @@ export const terms = [
   },
   {
     _id: '4i-3',
-    course: '4i',
+    courseId: '4i',
     termNumber: 3,
     totalSessions: 20,
     sessions: [
@@ -169,7 +171,7 @@ export const terms = [
   },
   {
     _id: '5i-1',
-    course: '5i',
+    courseId: '5i',
     termNumber: 1,
     totalSessions: 20,
     sessions: [
@@ -197,7 +199,7 @@ export const terms = [
   },
   {
     _id: '5i-2',
-    course: '5i',
+    courseId: '5i',
     termNumber: 2,
     totalSessions: 20,
     sessions: [
@@ -225,7 +227,7 @@ export const terms = [
   },
   {
     _id: '5i-3',
-    course: '5i',
+    courseId: '5i',
     termNumber: 3,
     totalSessions: 20,
     sessions: [
