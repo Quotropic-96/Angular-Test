@@ -13,4 +13,6 @@ export class SessionCardComponent {
     isDone: false,
     isNext: false,
   };
+
+  constructor() {};
 }
