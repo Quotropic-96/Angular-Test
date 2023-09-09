@@ -1,16 +1,19 @@
 import { Component, Input } from '@angular/core';
+import { UserTerm } from 'src/app/models/userTerm';
 
 @Component({
   selector: 'app-term-card',
   templateUrl: './term-card.component.html',
-  styleUrls: ['./term-card.component.scss']
+  styleUrls: ['./term-card.component.scss'],
 })
 export class TermCardComponent {
-  @Input({ required: true }) term: number = 0;
-  @Input({ required: true }) completedSessions: number = 0;
-  @Input({ required: true }) totalSessions: number = 0;
-
-  isFullCircle: boolean = false;
+  @Input() term: UserTerm = {
+      courseId: '3i',
+      termNumber: 1,
+      totalSessions: 0,
+      completedSessions: 0,
+      isCompleted: false
+  };
 
   graphSize: number = 60;
   iconSize: number = 30;
@@ -20,17 +23,15 @@ export class TermCardComponent {
   iconX: number = (this.graphSize - this.iconSize) / 2;
   iconY: number = (this.graphSize - this.iconSize) / 2;
 
-  ngOnInit() {
-    this.isFullCircle = this.completedSessions === this.totalSessions;
-  }
+  constructor() {}
 
   generateProgressPath(): string {
-    if (this.totalSessions <= 0 || this.completedSessions <= 0) {
+    if (this.term.totalSessions <= 0 || this.term.completedSessions <= 0) {
       return '';
     }
 
     const startAngle = -90;
-    const endAngle = startAngle + 360 * this.completedSessions / this.totalSessions;
+    const endAngle = startAngle + 360 * this.term.completedSessions / this.term.totalSessions;
 
     // Calculate the coordinates of the arc's start and end points
     const startX = this.centerX + this.radius * Math.cos((startAngle * Math.PI) / 180);

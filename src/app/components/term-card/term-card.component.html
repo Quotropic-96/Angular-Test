@@ -1,7 +1,7 @@
 <a class="term-card" [routerLink]="['/term-detail', term]">
   <div>
-    <h2>{{ term }}º Trimestre</h2>
-    <p>{{ completedSessions }}/{{ totalSessions }} sesiones</p>
+    <h2>{{ term.termNumber }}º Trimestre</h2>
+    <p>{{ term.completedSessions }}/{{ term.totalSessions }} sesiones</p>
   </div>
   <svg
     [attr.width]=graphSize
@@ -9,7 +9,7 @@
     xmlns="http://www.w3.org/2000/svg"
   >
     <circle class="progress-background" [attr.cx]=centerX [attr.cy]=centerY [attr.r]=radius />
-    <ng-container *ngIf="isFullCircle; else arc">
+    <ng-container *ngIf="term.completedSessions === term.totalSessions; else arc">
       <circle class="progress-indicator" [attr.cx]=centerX [attr.cy]=centerY [attr.r]=radius />
       <foreignObject [attr.x]=iconX [attr.y]=iconY [attr.width]=iconSize [attr.height]=iconSize>
         <app-icon iconName="done"></app-icon>

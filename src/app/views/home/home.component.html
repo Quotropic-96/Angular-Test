@@ -30,9 +30,7 @@
   <div class="term-card-container">
     <app-term-card
       *ngFor="let term of terms"
-      [term]="term.termNumber"
-      [completedSessions]="term.completedSessions"
-      [totalSessions]="term.totalSessions"
+      [term]="term"
     ></app-term-card>
   </div>
 </div>

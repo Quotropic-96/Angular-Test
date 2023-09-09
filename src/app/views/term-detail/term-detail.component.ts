@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { UserTerm } from 'src/app/models/userTerm';
 
 @Component({
   selector: 'app-term-detail',
@@ -8,6 +9,13 @@ import { Location } from '@angular/common';
   styleUrls: ['./term-detail.component.scss'],
 })
 export class TermDetailComponent implements OnInit {
+  term: UserTerm = {
+      courseId: '3i',
+      termNumber: 1,
+      totalSessions: 0,
+      completedSessions: 0,
+      isCompleted: false
+  }
   termId: string = '';
   termNumber: number = 0;
   completedSessions: number = 0;
