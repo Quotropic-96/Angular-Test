@@ -74,6 +74,7 @@ export class UserProgressService {
       );
       return filteredSessions.map((session, idx) => {
         let userSession: UserSession = {
+          sessionId: this.contentService.getSessionById(session.sessionId)._id,
           sessionNumber: session.sessionNumber,
           sessionTitle: this.contentService.getSessionById(session.sessionId).title,
           isDone: session.completed,

@@ -8,6 +8,7 @@
       </p>
       <div class="home-button-container">
         <app-button
+          [routerLink]="['/start-session', nextSession._id]"
           [isPrimary]="true"
           [isActive]="true"
           [isIcon]="true"

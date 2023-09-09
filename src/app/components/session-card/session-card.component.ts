@@ -8,6 +8,7 @@ import { UserSession } from 'src/app/models/userSession.interface';
 })
 export class SessionCardComponent {
   @Input() session: UserSession = {
+    sessionId: '3i-1-1',
     sessionNumber: 0,
     sessionTitle: '',
     isDone: false,
