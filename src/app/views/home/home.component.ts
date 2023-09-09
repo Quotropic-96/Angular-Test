@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserTerm } from 'src/app/models/userTerm';
+import { Session } from 'src/app/models/session.interface';
 import { UserProgressService } from 'src/app/services/user-progress-service/user-progress.service';
 import { SettingsService } from 'src/app/services/settings-service/settings.service';
 import { CourseId } from 'src/app/shared/courseId';
@@ -10,8 +11,9 @@ import { CourseId } from 'src/app/shared/courseId';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  currentTerm = '2º Trimestre';
-  currentSession = '25, Ordinales, Fraccionales y Decimales';
+  // currentTerm = '2º Trimestre';
+  // currentSession = '25, Ordinales, Fraccionales y Decimales';
+  nextSession: Session | undefined;
   terms!: UserTerm[];
   currentCourse!: CourseId;
 
@@ -24,7 +26,9 @@ export class HomeComponent {
     this.settingsService.settings$.subscribe(() => {
       this.getCurrentCourse();
       this.getTermProgress(this.currentCourse);
-    })
+    });
+
+    this.nextSession = this.userProgressService.getNextSession();
   }
 
   getCurrentCourse() {

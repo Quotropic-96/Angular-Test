@@ -1,7 +1,7 @@
 <div class="home-container">
-  <div class="home-dashboard">
+  <div *ngIf="nextSession" class="home-dashboard">
     <h2>Vuelve donde lo dejaste</h2>
-    <p>{{ currentTerm }} - Session {{ currentSession }}</p>
+    <p >{{ nextSession.term }}º Trimestre - Session {{ nextSession.sessionNumber }}, {{ nextSession.title }}</p>
     <div class="home-button-container">
       <app-button
         [isPrimary]="true"

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { user } from 'src/app/data/user';
-import { terms } from 'src/app/data/terms';
-import { sessions } from 'src/app/data/sessions';
-import { Term } from 'src/app/models/term.interface';
-import { Session } from 'src/app/models/session.interface';
+// import { terms } from 'src/app/data/terms';
+// import { sessions } from 'src/app/data/sessions';
+// import { Term } from 'src/app/models/term.interface';
+// import { Session } from 'src/app/models/session.interface';
 import { CourseId } from 'src/app/shared/courseId';
 import { UserTerm } from 'src/app/models/userTerm';
+import { Session } from 'src/app/models/session.interface';
 import { UserSession } from 'src/app/models/userSession.interface';
 import { ContentService } from '../content-service/content.service';
 
@@ -13,8 +14,8 @@ import { ContentService } from '../content-service/content.service';
   providedIn: 'root',
 })
 export class UserProgressService {
-  private terms: Term[] = terms;
-  private sessions: Session[] = sessions;
+  // private terms: Term[] = terms;
+  // private sessions: Session[] = sessions;
   private user = user;
   private termProgress: UserTerm[] = [
     {
@@ -82,5 +83,19 @@ export class UserProgressService {
       };
       return userSession;
     });
+  }
+
+  getNextSession() : Session | undefined {
+    const storedSession = localStorage.getItem('nextSession');
+    if (storedSession) {
+      return JSON.parse(storedSession);
+    } else {
+      const incompleteSession = user.sessionProgress.find((session) => !session.completed);
+      if (incompleteSession) {
+        return this.contentService.getSessionById(incompleteSession.sessionId);
+      } else {
+        return undefined;
+      }
+    }
   }
 }

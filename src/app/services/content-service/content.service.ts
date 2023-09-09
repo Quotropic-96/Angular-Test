@@ -25,7 +25,7 @@ export class ContentService {
     return this.terms.filter(term => term.courseId === courseId);
   }
 
-  getSessions(courseId: CourseId, termNumber: number) : Session[] {
+  getSessionsByCourseAndTerm(courseId: CourseId, termNumber: number) : Session[] {
     return this.sessions.filter(session => session.courseId === courseId && session.term === termNumber);
   }
 
