@@ -27,6 +27,7 @@ export class HomeComponent {
     });
 
     this.nextSession = this.userProgressService.getNextSession();
+    console.log(this.nextSession)
   }
 
   getCurrentCourse() {

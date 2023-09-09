@@ -1,36 +1,43 @@
 <div class="home-container">
-  <div *ngIf="nextSession" class="home-dashboard">
-    <h2>Vuelve donde lo dejaste</h2>
-    <p >{{ nextSession.term }}º Trimestre - Session {{ nextSession.sessionNumber }}, {{ nextSession.title }}</p>
-    <div class="home-button-container">
-      <app-button
-        [isPrimary]="true"
-        [isActive]="true"
-        [isIcon]="true"
-        iconName="play-white"
-        buttonText="Reproducción ordenada"
-      ></app-button>
-      <app-button
-        [isPrimary]="false"
-        [isActive]="true"
-        [isIcon]="true"
-        iconName="aleatorio"
-        buttonText="Aleatorio"
-      ></app-button>
-      <app-button
-        [isPrimary]="false"
-        [isActive]="true"
-        [isIcon]="true"
-        iconName="next"
-        buttonText="Siguiente sesión"
-      ></app-button>
+  <ng-container *ngIf="nextSession; else completedContent">
+    <div class="home-dashboard">
+      <h2>Vuelve donde lo dejaste</h2>
+      <p>
+        {{ nextSession.term }}º Trimestre - Sessión
+        {{ nextSession.sessionNumber }}, {{ nextSession.title }}
+      </p>
+      <div class="home-button-container">
+        <app-button
+          [isPrimary]="true"
+          [isActive]="true"
+          [isIcon]="true"
+          iconName="play-white"
+          buttonText="Reproducción ordenada"
+        ></app-button>
+        <app-button
+          [isPrimary]="false"
+          [isActive]="true"
+          [isIcon]="true"
+          iconName="aleatorio"
+          buttonText="Aleatorio"
+        ></app-button>
+        <app-button
+          [isPrimary]="false"
+          [isActive]="true"
+          [isIcon]="true"
+          iconName="next"
+          buttonText="Siguiente sesión"
+        ></app-button>
+      </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #completedContent>
+    <div class="home-dashboard" #completedContent>
+      <h2>¡Enhorabuena, has completado todo el temario!</h2>
+    </div>
+  </ng-template>
   <h2>Temario</h2>
   <div class="term-card-container">
-    <app-term-card
-      *ngFor="let term of terms"
-      [term]="term"
-    ></app-term-card>
+    <app-term-card *ngFor="let term of terms" [term]="term"></app-term-card>
   </div>
 </div>
