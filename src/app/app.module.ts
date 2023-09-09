@@ -14,7 +14,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { BeforeStartComponent } from './views/before-start/before-start.component';
 import { MenuService } from './services/menu-service/menu.service';
 import { MenuComponent } from './components/menu/menu.component';
-import { MockApiService } from './services/api-mock-service/mock-api.service';
+import { ContentService } from './services/content-service/content.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { MockApiService } from './services/api-mock-service/mock-api.service';
     MenuComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [MenuService, MockApiService],
+  providers: [MenuService, ContentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

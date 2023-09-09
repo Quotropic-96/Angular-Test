@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContentService } from 'src/app/services/content-service/content.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   currentTerm = '2º Trimestre'
   currentSession = '25, Ordinales, Fraccionales y Decimales';
+
+  constructor(private contentService: ContentService) {}
 
   terms = [
     {

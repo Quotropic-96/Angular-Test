@@ -10,7 +10,7 @@ import { CourseId } from 'src/app/shared/courseId';
 @Injectable({
   providedIn: 'root'
 })
-export class MockApiService {
+export class ContentService {
   private courses: Course[] = courses;
   private terms: Term[] = terms;
   private sessions: Session[] = sessions;
