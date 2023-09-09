@@ -11,7 +11,7 @@ import { CourseId } from 'src/app/shared/courseId';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  nextSession: Session | undefined;
+  nextSession!: Session | null;
   terms!: UserTerm[];
   currentCourse!: CourseId;
 
@@ -27,7 +27,6 @@ export class HomeComponent {
     });
 
     this.nextSession = this.userProgressService.getNextSession();
-    console.log(this.nextSession)
   }
 
   getCurrentCourse() {
@@ -35,6 +34,6 @@ export class HomeComponent {
   }
 
   getTermProgress(courseId: CourseId) {
-    this.terms = this.userProgressService.getTermProgress(courseId);
+    this.terms = this.userProgressService.getTermProgressByCourse(courseId);
   }
 }

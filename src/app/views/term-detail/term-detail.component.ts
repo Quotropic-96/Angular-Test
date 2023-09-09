@@ -36,7 +36,7 @@ export class TermDetailComponent implements OnInit {
       this.courseId = this.settingsService.getCourse();
       this.termId = parseInt(params['id']);
       this.term = this.userProgressService.getSingleTermProgress(this.courseId, this.termId);
-      this.sessions = this.userProgressService.getSessionsProgress(this.courseId, this.termId);
+      this.sessions = this.userProgressService.getSessionsProgressByCourseAndTerm(this.courseId, this.termId);
     });
   }
 
