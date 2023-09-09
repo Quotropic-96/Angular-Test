@@ -7,6 +7,7 @@ import { Session } from 'src/app/models/session.interface';
 import { CourseId } from 'src/app/shared/courseId';
 import { UserTerm } from 'src/app/models/userTerm';
 import { UserSession } from 'src/app/models/userSession.interface';
+import { ContentService } from '../content-service/content.service';
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +40,7 @@ export class UserProgressService {
     },
   ];
 
-  constructor() {}
+  constructor(private contentService: ContentService) {}
 
   getTermProgress(courseId: CourseId): UserTerm[] {
     return this.termProgress.map((term, idx) => {
@@ -75,7 +76,7 @@ export class UserProgressService {
     return filtteredSessions.map((session, idx) => {
       let userSession: UserSession = {
         sessionNumber: session.sessionNumber,
-        sessionTitle: session.sessionId,
+        sessionTitle: this.contentService.getSessionById(session.sessionId).title,
         isDone: session.completed,
         isNext: !session.completed && (idx === 0 ||filtteredSessions[idx - 1].completed),
       };

@@ -21,11 +21,15 @@ export class ContentService {
     return this.courses;
   }
 
-  getTerms(courseId: string) : Term[] {
+  getTermsByCourse(courseId: string) : Term[] {
     return this.terms.filter(term => term.courseId === courseId);
   }
 
   getSessions(courseId: CourseId, termNumber: number) : Session[] {
     return this.sessions.filter(session => session.courseId === courseId && session.term === termNumber);
+  }
+
+  getSessionById(sessionId: string) : Session {
+    return this.sessions.filter(session => session._id === sessionId)[0];
   }
 }
