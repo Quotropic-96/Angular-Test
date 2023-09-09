@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ContentService } from 'src/app/services/content-service/content.service';
+import { UserTerm } from 'src/app/models/userTerm';
+import { UserProgressService } from 'src/app/services/user-progress-service/user-progress.service';
+import { CourseId } from 'src/app/shared/courseId';
 
 @Component({
   selector: 'app-home',
@@ -9,27 +11,16 @@ import { ContentService } from 'src/app/services/content-service/content.service
 export class HomeComponent {
   currentTerm = '2º Trimestre'
   currentSession = '25, Ordinales, Fraccionales y Decimales';
+  terms!: UserTerm[];
 
-  constructor(private contentService: ContentService) {}
+  constructor(private userProgressService: UserProgressService) {}
 
-  terms = [
-    {
-      number: 1,
-      totalSessions: 50,
-      completedSessions: 50,
-      isCompleted: true
-    },
-    {
-      number: 2,
-      totalSessions: 50,
-      completedSessions: 30,
-      isCompleted: false
-    },
-    {
-      number: 3,
-      totalSessions: 50,
-      completedSessions: 0,
-      isCompleted: false
-    }
-  ];
+  ngOnInit() {
+    this.getTermProgress('4i');
+  }
+
+  getTermProgress (courseId: CourseId) {
+    this.terms = this.userProgressService.getTermProgress(courseId);
+  }
+  
 }
