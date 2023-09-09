@@ -1,4 +1,4 @@
-<a class="term-card" [routerLink]="['/term-detail', term]">
+<a class="term-card" [routerLink]="['/term-detail', term.termNumber]">
   <div>
     <h2>{{ term.termNumber }}º Trimestre</h2>
     <p>{{ term.completedSessions }}/{{ term.totalSessions }} sesiones</p>
