@@ -14,7 +14,7 @@ export class UserProgressService {
   private terms: Term[] = terms;
   private sessions: Session[] = sessions;
   private user = user;
-  private termProgressDefault: UserTerm[] = [
+  private termProgress: UserTerm[] = [
     {
       courseId: '3i',
       termNumber: 1,
@@ -41,18 +41,13 @@ export class UserProgressService {
   constructor() {}
 
   getTermProgress(courseId: CourseId): UserTerm[] {
-    const termProgress: UserTerm[] = JSON.parse(JSON.stringify(this.termProgressDefault));
-    this.user.sessionProgress
-      .filter((session) => session.courseId === courseId)
-      .forEach((filteredSession) => {
-        termProgress[filteredSession.term - 1].totalSessions += 1;
-        if (filteredSession.completed) {
-          termProgress[filteredSession.term - 1].completedSessions += 1;
-        }
-      });
-    return termProgress.map((term) => {
+    return this.termProgress.map((term, idx) => {
+      let sessions = this.user.sessionProgress.filter(session => session.courseId === courseId && session.term === idx + 1)
+      term.courseId = courseId;
+      term.totalSessions = sessions.length;
+      term.completedSessions = sessions.filter(session => session.completed).length;
       term.isCompleted = term.totalSessions === term.completedSessions;
       return term;
-    });
+    })
   }
 }
