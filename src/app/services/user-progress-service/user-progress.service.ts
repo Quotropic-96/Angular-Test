@@ -92,10 +92,17 @@ export class UserProgressService {
     } else {
       const incompleteSession = user.sessionProgress.find((session) => !session.completed);
       if (incompleteSession) {
-        return this.contentService.getSessionById(incompleteSession.sessionId);
+        const nextSession = this.contentService.getSessionById(incompleteSession.sessionId);
+        this.saveNextSession(nextSession);
+        return nextSession;
       } else {
         return undefined;
       }
     }
+  }
+
+  // Should be called when a session is finished for the first time
+  saveNextSession(nextSession : Session) : void {
+    localStorage.setItem('nextSession', JSON.stringify(nextSession));
   }
 }
