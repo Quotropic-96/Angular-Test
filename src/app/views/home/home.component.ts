@@ -11,8 +11,6 @@ import { CourseId } from 'src/app/shared/courseId';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  // currentTerm = '2º Trimestre';
-  // currentSession = '25, Ordinales, Fraccionales y Decimales';
   nextSession: Session | undefined;
   terms!: UserTerm[];
   currentCourse!: CourseId;

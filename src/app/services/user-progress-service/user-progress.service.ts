@@ -85,21 +85,23 @@ export class UserProgressService {
     });
   }
 
-  getNextSession() : Session | undefined {
+  getNextSession(): Session | undefined {
     const storedSession = localStorage.getItem('nextSession');
+    
     if (storedSession) {
       return JSON.parse(storedSession);
-    } else {
-      const incompleteSession = user.sessionProgress.find((session) => !session.completed);
-      if (incompleteSession) {
-        const nextSession = this.contentService.getSessionById(incompleteSession.sessionId);
-        this.saveNextSession(nextSession);
-        return nextSession;
-      } else {
-        return undefined;
-      }
     }
+
+    const incompleteSession = user.sessionProgress.find((session) => !session.completed);
+    if (incompleteSession) {
+      const nextSession = this.contentService.getSessionById(incompleteSession.sessionId);
+      this.saveNextSession(nextSession);
+      return nextSession;
+    }
+  
+    return undefined;
   }
+  
 
   // Should be called when a session is finished for the first time
   saveNextSession(nextSession : Session) : void {
