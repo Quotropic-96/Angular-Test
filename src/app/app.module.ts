@@ -15,6 +15,7 @@ import { BeforeStartComponent } from './views/before-start/before-start.componen
 import { MenuService } from './services/menu-service/menu.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { ContentService } from './services/content-service/content.service';
+import { SettingsService } from './services/settings-service/settings.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ContentService } from './services/content-service/content.service';
     MenuComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [MenuService, ContentService],
+  providers: [MenuService, ContentService, SettingsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

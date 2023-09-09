@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Settings } from 'src/app/models/settings.interface';
 import { MenuService } from 'src/app/services/menu-service/menu.service';
+import { SettingsService } from 'src/app/services/settings-service/settings.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,14 +17,14 @@ export class MenuComponent {
 
   settings: Settings | null = null;
 
-  constructor(private menuService: MenuService) {};
+  constructor(private menuService: MenuService, private settingsService: SettingsService) {};
 
   ngOnInit() {
     this.getSettings();
   }
 
   getSettings() {
-    this.settings = this.menuService.getSettings();
+    this.settings = this.settingsService.getSettings();
     if (this.settings) {
       this.settingsForm.patchValue(this.settings);
     } else {
@@ -34,7 +35,7 @@ export class MenuComponent {
   onSubmit(form: FormGroup) {
     if (form.valid) {
       const formData: Settings = form.value;
-      this.menuService.saveSettings(formData);
+      this.settingsService.saveSettings(formData);
       this.closeMenu();
     } else {
       // Handle form validation errors or display a message to the user
