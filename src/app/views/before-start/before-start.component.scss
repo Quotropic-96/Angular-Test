@@ -1,15 +1,15 @@
 .before-start {
-  position: absolute;
-  top: 0;
   height: 100vh;
   width: 100vw;
-  background-color: var(--primary-white);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   gap: 10%;
+  position: absolute;
+  top: 0;
   padding: 5% 0;
+  background-color: var(--primary-white);
 }
 
 .instructions-container {
