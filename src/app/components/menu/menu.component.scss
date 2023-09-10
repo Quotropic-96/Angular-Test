@@ -77,6 +77,8 @@ form {
   border: 1px solid var(--grey-light);
   padding: 15px;
   font-size: 14px;
+  appearance: none;
+  background-color: var(--primary-white);
   color: var(--grey-dark-text);
 }
 
