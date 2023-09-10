@@ -7,42 +7,49 @@ import { SettingsService } from 'src/app/services/settings-service/settings.serv
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
   settingsForm: FormGroup = new FormGroup({
     idioma: new FormControl(''),
-    curso: new FormControl('')
+    curso: new FormControl(''),
   });
 
+  isError: boolean = false;
+  errorMessage: string = '';
   settings: Settings | null = null;
 
-  constructor(private menuService: MenuService, private settingsService: SettingsService) {};
+  constructor(
+    private menuService: MenuService,
+    private settingsService: SettingsService
+  ) {}
 
   ngOnInit() {
     this.getSettings();
   }
 
-  getSettings() {
+  getSettings(): void {
     this.settings = this.settingsService.getSettings();
     if (this.settings) {
       this.settingsForm.patchValue(this.settings);
     } else {
-      console.warn('Service unavailable');
+      this.isError = true;
+      this.errorMessage = 'Could not load menu';
     }
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit(form: FormGroup) : void {
     if (form.valid) {
       const formData: Settings = form.value;
       this.settingsService.saveSettings(formData);
       this.closeMenu();
     } else {
-      // Handle form validation errors or display a message to the user
+      this.isError = true;
+      this.errorMessage = 'Input valid values';
     }
   }
 
-  closeMenu() {
+  closeMenu() : void {
     this.menuService.closeMenu();
     this.getSettings();
   }

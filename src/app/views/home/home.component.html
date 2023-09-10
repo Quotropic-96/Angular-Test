@@ -1,4 +1,4 @@
-<div class="home-container" [ngClass]="{'blur': isBlur}">
+<div class="home-container" [class.blur]="isBlurActive() | async">
   <ng-container *ngIf="nextSession; else completedContent">
     <div class="home-dashboard">
       <h2>Vuelve donde lo dejaste</h2>

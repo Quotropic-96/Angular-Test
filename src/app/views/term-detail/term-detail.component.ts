@@ -19,10 +19,8 @@ export class TermDetailComponent {
   termId: number = 0;
   term!: UserTerm;
   sessions: UserSession[] = [];
-  isBlur: boolean = false;
 
   private routeParamsSubscription!: Subscription;
-  private menuSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,18 +37,17 @@ export class TermDetailComponent {
       this.term = this.userProgressService.getSingleTermProgress(this.courseId, this.termId);
       this.sessions = this.userProgressService.getSessionsProgressByCourseAndTerm(this.courseId, this.termId);
     });
-
-    this.menuSubscription = this.menuService.isBlurActive$.subscribe((isBlurActive) => {
-      this.isBlur = isBlurActive;
-    });
   }
 
   ngOnDestroy(): void {
     this.routeParamsSubscription.unsubscribe();
-    this.menuSubscription.unsubscribe();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  isBlurActive() {
+    return this.menuService.isBlurActive$;
   }
 }

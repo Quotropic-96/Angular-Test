@@ -15,7 +15,9 @@ export class ButtonComponent {
 
   toUrl: string[] = [''];
 
-  ngOnInit() {
+  constructor() {};
+
+  ngOnInit() : void {
     const splitUrl = this.rawToUrl.split(':');
     if (this.rawToUrl.length === 0) {
       this.toUrl = ['#'];

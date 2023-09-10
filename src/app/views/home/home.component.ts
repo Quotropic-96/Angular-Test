@@ -16,10 +16,8 @@ export class HomeComponent {
   nextSession!: Session | null;
   terms!: UserTerm[];
   currentCourse!: CourseId;
-  isBlur: boolean = false;
 
   private settingsSubscription!: Subscription;
-  private menuSubscription!: Subscription;
 
   constructor(
     private userProgressService: UserProgressService,
@@ -33,16 +31,11 @@ export class HomeComponent {
       this.getTermProgress(this.currentCourse);
     });
 
-    this.menuSubscription = this.menuService.isBlurActive$.subscribe((isBlurActive) => {
-      this.isBlur = isBlurActive;
-    });
-
     this.nextSession = this.userProgressService.getNextSession();
   }
 
   ngOnDestroy() : void {
     this.settingsSubscription.unsubscribe();
-    this.menuSubscription.unsubscribe();
   }
 
   getCurrentCourse() : void {
@@ -51,5 +44,9 @@ export class HomeComponent {
 
   getTermProgress(courseId: CourseId) : void {
     this.terms = this.userProgressService.getTermProgressByCourse(courseId);
+  }
+
+  isBlurActive() {
+    return this.menuService.isBlurActive$;
   }
 }
