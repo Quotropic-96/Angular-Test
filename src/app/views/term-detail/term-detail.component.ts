@@ -6,6 +6,8 @@ import { UserProgressService } from 'src/app/services/user-progress-service/user
 import { SettingsService } from 'src/app/services/settings-service/settings.service';
 import { CourseId } from 'src/app/shared/courseId';
 import { UserSession } from 'src/app/models/userSession.interface';
+import { Subscription } from 'rxjs';
+import { MenuService } from 'src/app/services/menu-service/menu.service';
 
 @Component({
   selector: 'app-term-detail',
@@ -23,21 +25,35 @@ export class TermDetailComponent implements OnInit {
     isCompleted: false,
   };
   sessions: UserSession[] = [];
+  isBlur: boolean = false;
+
+  private routeParamsSubscription!: Subscription;
+  menuSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private settingsService: SettingsService,
-    private userProgressService: UserProgressService
+    private userProgressService: UserProgressService,
+    private menuService: MenuService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+    this.routeParamsSubscription = this.route.params.subscribe((params) => {
       this.courseId = this.settingsService.getCourse();
       this.termId = parseInt(params['id']);
       this.term = this.userProgressService.getSingleTermProgress(this.courseId, this.termId);
       this.sessions = this.userProgressService.getSessionsProgressByCourseAndTerm(this.courseId, this.termId);
     });
+
+    this.menuSubscription = this.menuService.isBlurActive$.subscribe((isBlurActive) => {
+      this.isBlur = isBlurActive;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription.unsubscribe();
+    this.menuSubscription.unsubscribe();
   }
 
   goBack(): void {

@@ -1,9 +1,7 @@
 .menu-container {
   display: none;
-  // transition: transform 0.3s ease-in-out;
   height: 100dvh;
   width: 100dvw;
-  // background-color: var(--primary-white);
 }
 
 .menu-container.open {
@@ -19,7 +17,6 @@
   width: 60%;
   background-color: var(--grey-dark-text);
   opacity: 50%;
-  // filter: blur(5px);
 }
 
 .menu {
@@ -86,10 +83,6 @@ form {
 .custom-dropdown:focus {
   border: 1px solid var(--secondary-green);
 }
-
-// .custom-dropdown option:checked {
-//   border: 1px solid #007bff;
-// }
 
 .form-buttons {
   width: 100%;

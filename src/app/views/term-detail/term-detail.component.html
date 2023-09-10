@@ -1,4 +1,4 @@
-<div class="term-detail">
+<div class="term-detail" [ngClass]="{'blur': isBlur}">
   <div (click)="goBack()" class="term-detail-menu">
     <app-icon iconName="arrow-left"></app-icon>
     <p>Atrás</p>
