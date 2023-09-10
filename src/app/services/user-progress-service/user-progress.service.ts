@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { user } from 'src/app/data/user';
 import { CourseId } from 'src/app/shared/courseId';
-import { UserTerm } from 'src/app/models/userTerm';
+import { UserTerm, defaultUserTerm } from 'src/app/models/userTerm';
 import { Session } from 'src/app/models/session.interface';
 import { UserSession } from 'src/app/models/userSession.interface';
 import { ContentService } from '../content-service/content.service';
@@ -22,13 +22,7 @@ export class UserProgressService {
     const numberOfTerms = 3;
 
     for (let termNumber = 1; termNumber <= numberOfTerms; termNumber++) {
-      this.termProgress.push({
-        courseId,
-        termNumber,
-        totalSessions: 0,
-        completedSessions: 0,
-        isCompleted: false,
-      });
+      this.termProgress.push(defaultUserTerm);
     }
   }
 
