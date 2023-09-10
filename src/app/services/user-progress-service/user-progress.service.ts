@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { user } from 'src/app/data/user';
-import { throwError } from 'rxjs';
 import { CourseId } from 'src/app/shared/courseId';
 import { UserTerm } from 'src/app/models/userTerm';
 import { Session } from 'src/app/models/session.interface';
@@ -12,31 +11,26 @@ import { ContentService } from '../content-service/content.service';
 })
 export class UserProgressService {
   private user = user;
-  private termProgress: UserTerm[] = [
-    {
-      courseId: '3i',
-      termNumber: 1,
-      totalSessions: 0,
-      completedSessions: 0,
-      isCompleted: false,
-    },
-    {
-      courseId: '3i',
-      termNumber: 2,
-      totalSessions: 0,
-      completedSessions: 0,
-      isCompleted: false,
-    },
-    {
-      courseId: '3i',
-      termNumber: 3,
-      totalSessions: 0,
-      completedSessions: 0,
-      isCompleted: false,
-    },
-  ];
+  private termProgress: UserTerm[] = [];
 
-  constructor(private contentService: ContentService) {}
+  constructor(private contentService: ContentService) {
+    this.initializeTermProgress();
+  }
+
+  private initializeTermProgress() {
+    const courseId = '3i';
+    const numberOfTerms = 3;
+
+    for (let termNumber = 1; termNumber <= numberOfTerms; termNumber++) {
+      this.termProgress.push({
+        courseId,
+        termNumber,
+        totalSessions: 0,
+        completedSessions: 0,
+        isCompleted: false,
+      });
+    }
+  }
 
   getTermProgressByCourse(courseId: CourseId): UserTerm[] {
     try {

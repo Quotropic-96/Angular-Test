@@ -28,7 +28,7 @@ export class SettingsService {
     return this.settingsSubject.value;
   }
 
-  saveSettings(settingsData: Settings) {
+  saveSettings(settingsData: Settings) : void {
     localStorage.setItem('settings', JSON.stringify(settingsData));
     this.settingsSubject.next(settingsData);
   }
@@ -37,8 +37,7 @@ export class SettingsService {
     const settings = this.getSettings();
     if (settings) {
       return settings.curso;
-    } else {
-      return this.defaultSettings.curso;
     }
+    return this.defaultSettings.curso;
   }
 }

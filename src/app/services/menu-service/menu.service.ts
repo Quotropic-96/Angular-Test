@@ -14,12 +14,12 @@ export class MenuService {
   
   constructor() { }
 
-  toggleMenu() {
+  toggleMenu() : void {
     this.isMenuOpenSubject.next(!this.isMenuOpenSubject.value);
     this.isBlurActiveSubject.next(!this.isBlurActiveSubject.value);
   }
 
-  closeMenu() {
+  closeMenu() : void {
     this.isMenuOpenSubject.next(false);
     this.isBlurActiveSubject.next(false);
   }
