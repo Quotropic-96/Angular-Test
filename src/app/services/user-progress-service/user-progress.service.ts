@@ -18,11 +18,10 @@ export class UserProgressService {
   }
 
   private initializeTermProgress() {
-    const courseId = '3i';
     const numberOfTerms = 3;
 
     for (let termNumber = 1; termNumber <= numberOfTerms; termNumber++) {
-      this.termProgress.push(defaultUserTerm);
+      this.termProgress.push({...defaultUserTerm, termNumber});
     }
   }
 
