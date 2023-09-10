@@ -8,7 +8,27 @@
     <ng-container *ngIf="!isError; else error">
       <form [formGroup]="settingsForm" (ngSubmit)="onSubmit(settingsForm)">
         <div class="input-container">
+
           <div class="dropdown-container">
+            <label class="dropdown-label">Idioma</label>
+            <mat-form-field>
+              <mat-select formControlName="idioma">
+                <mat-option value="esp">
+                    <div>Español</div>
+                </mat-option>
+                <mat-option value="eng">
+                  <div>English</div>
+              </mat-option>
+                <mat-option value="cat">
+                  <div>Català</div>
+              </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+
+          <!-- <div class="dropdown-container">
             <label for="idioma" class="dropdown-label">Idioma</label>
             <select
               id="idioma"
@@ -20,7 +40,7 @@
               <option value="eng">English</option>
               <option value="cat">Català</option>
             </select>
-          </div>
+          </div> -->
 
           <div class="dropdown-container">
             <label for="curso" class="dropdown-label">Curso</label>

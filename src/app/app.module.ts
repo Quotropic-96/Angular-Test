@@ -16,6 +16,8 @@ import { MenuService } from './services/menu-service/menu.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { ContentService } from './services/content-service/content.service';
 import { SettingsService } from './services/settings-service/settings.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { SettingsService } from './services/settings-service/settings.service';
     BeforeStartComponent,
     MenuComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatSelectModule],
   providers: [MenuService, ContentService, SettingsService],
   bootstrap: [AppComponent],
 })

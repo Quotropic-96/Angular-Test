@@ -39,6 +39,7 @@ export class MenuComponent {
   }
 
   onSubmit(form: FormGroup) : void {
+    console.log(form)
     if (form.valid) {
       const formData: Settings = form.value;
       this.settingsService.saveSettings(formData);

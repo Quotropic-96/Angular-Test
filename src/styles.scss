@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap");
 :root {
-  --primary-white: #FFFFFF;
-  --secondary-green: #00AEA4;
-  --accent: #F26C48;
-  --accent-shadow: #D35435;
-  --progress: #ED993F;
-  --grey-light: #DDDDDD;
+  --primary-white: #ffffff;
+  --secondary-green: #00aea4;
+  --accent: #f26c48;
+  --accent-shadow: #d35435;
+  --progress: #ed993f;
+  --grey-light: #dddddd;
   --grey-medium: #656565;
-  --grey-dark-icons: #4F4F4F;
-  --grey-dark-text: #3B3B3B;
-  --background-color: #F0F0F0;
-  --page-x-padding: 10%
+  --grey-dark-icons: #4f4f4f;
+  --grey-dark-text: #3b3b3b;
+  --background-color: #f0f0f0;
+  --page-x-padding: 10%;
 }
 
 * {
@@ -20,30 +20,30 @@
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 36px;
 }
 
 h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
 }
 
 body {
   height: 100dvh;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 30;
   background-color: var(--background-color);
   color: var(--grey-dark-text);
 }
 
 button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
 }
 
 a {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   color: var(--grey-dark-text);
 }
@@ -64,4 +64,37 @@ a {
 
 .error {
   color: var(--accent-shadow);
+}
+
+// ----------- Dropdown ----------- //
+
+// Background box
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--primary-white) !important;
+  border: 1px solid var(--grey-light);
+  border-radius: 5px;
+}
+
+//Unselected option
+mat-option {
+  background-color: var(--primary-white);
+}
+
+// Selected option
+.mat-mdc-option:focus.mdc-list-item,
+.mat-mdc-option.mat-mdc-option-active.mdc-list-item {
+  background-color: var(--primary-white) !important;
+  border-left: 3px solid var(--secondary-green);
+  font-weight: bold;
+}
+
+// Border
+.mdc-line-ripple {
+  display: none;
+}
+
+// Selected background
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay {
+  opacity: 1;
+  background-color: var(--primary-white);
 }
