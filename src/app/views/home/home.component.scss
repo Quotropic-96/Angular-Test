@@ -3,13 +3,13 @@
 }
 
 .home-dashboard {
-  margin: 5% 0;
-  padding: 10px 20px;
   height: 20dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 10%;
+  margin: 5% 0;
+  padding: 10px 20px;
   background-color: var(--primary-white);
   border-radius: 10px;
 }

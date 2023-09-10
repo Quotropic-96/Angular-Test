@@ -22,35 +22,28 @@
 h1 {
   font-family: 'Poppins', sans-serif;
   font-size: 36px;
-  letter-spacing: 54;
 }
 
 h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
-  letter-spacing: 36;
 }
 
 body {
+  height: 100dvh;
   font-family: 'Roboto', sans-serif;
-  size: 20;
   letter-spacing: 30;
   background-color: var(--background-color);
   color: var(--grey-dark-text);
-  height: 100dvh;
 }
 
 button {
   font-family: 'Roboto', sans-serif;
-  // size: 20;
-  letter-spacing: 30;
   font-weight: bold;
 }
 
 a {
   font-family: 'Roboto', sans-serif;
-  // size: 20;
-  letter-spacing: 30;
   text-decoration: none;
   color: var(--grey-dark-text);
 }
