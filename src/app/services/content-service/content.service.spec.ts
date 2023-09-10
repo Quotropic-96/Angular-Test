@@ -12,7 +12,10 @@ describe('ContentService', () => {
   let contentService: ContentService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [ContentService]
+    });
+
     contentService = TestBed.inject(ContentService);
   });
 
