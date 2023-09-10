@@ -14,46 +14,33 @@
             <mat-form-field>
               <mat-select formControlName="idioma">
                 <mat-option value="esp">
-                    <div>Español</div>
+                    Español
                 </mat-option>
                 <mat-option value="eng">
-                  <div>English</div>
+                  English
               </mat-option>
                 <mat-option value="cat">
-                  <div>Català</div>
+                  Català
               </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
 
-
-
-          <!-- <div class="dropdown-container">
-            <label for="idioma" class="dropdown-label">Idioma</label>
-            <select
-              id="idioma"
-              class="custom-dropdown"
-              formControlName="idioma"
-              required="true"
-            >
-              <option value="esp">Español</option>
-              <option value="eng">English</option>
-              <option value="cat">Català</option>
-            </select>
-          </div> -->
-
           <div class="dropdown-container">
-            <label for="curso" class="dropdown-label">Curso</label>
-            <select
-              id="curso"
-              class="custom-dropdown"
-              formControlName="curso"
-              required="true"
-            >
-              <option value="3i">3º Infantil</option>
-              <option value="4i">4º Infantil</option>
-              <option value="5i">5º Infantil</option>
-            </select>
+            <label class="dropdown-label">Curso</label>
+            <mat-form-field>
+              <mat-select formControlName="curso">
+                <mat-option value="3i">
+                    3º de Infantil
+                </mat-option>
+                <mat-option value="4i">
+                  4º de Infantil
+              </mat-option>
+                <mat-option value="5i">
+                  5º de Infantil
+              </mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
         <div class="form-buttons">

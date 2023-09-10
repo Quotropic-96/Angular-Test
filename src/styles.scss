@@ -70,9 +70,12 @@ a {
 
 // Background box
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: var(--primary-white) !important;
+  background-color: var(--primary-white)!important;
   border: 1px solid var(--grey-light);
   border-radius: 5px;
+}
+.mdc-text-field--filled:focus {
+  border-color: var(--secondary-green)!important;
 }
 
 //Unselected option
@@ -86,6 +89,16 @@ mat-option {
   background-color: var(--primary-white) !important;
   border-left: 3px solid var(--secondary-green);
   font-weight: bold;
+}
+
+// Selected option text
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  color: var(--grey-dark-text)!important;
+}
+
+// Selected option icon 
+.mat-mdc-option .mat-pseudo-checkbox-minimal {
+  display: none;
 }
 
 // Border
