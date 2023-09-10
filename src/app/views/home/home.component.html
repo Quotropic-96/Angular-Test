@@ -38,7 +38,12 @@
     </div>
   </ng-template>
   <h2>Temario</h2>
-  <div class="term-card-container">
-    <app-term-card *ngFor="let term of terms" [term]="term"></app-term-card>
-  </div>
+  <ng-container *ngIf="!isError; else error">
+    <div class="term-card-container">
+      <app-term-card *ngFor="let term of terms" [term]="term"></app-term-card>
+    </div>
+  </ng-container>
+  <ng-template #error>
+    <h2 class="error">{{ errorMessage }}</h2>
+  </ng-template>
 </div>

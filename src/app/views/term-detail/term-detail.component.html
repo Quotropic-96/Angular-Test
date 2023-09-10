@@ -3,16 +3,21 @@
     <app-icon iconName="arrow-left"></app-icon>
     <p>Atrás</p>
   </div>
-  <div class="term-detail-content">
-    <app-term-card class="term-detail-summary" [term]=term></app-term-card>
-    <div class="term-sessions">
-      <div class="term-sessions-header">
-        <h2>Sesiones del {{term.termNumber}}º trimestre</h2>
-        <div class="term-sessions-progress">{{term.completedSessions}}/{{term.totalSessions}}</div>
-      </div>
-      <div class="term-sessions-list">
-        <app-session-card *ngFor="let session of sessions" [session]="session"></app-session-card>
+  <ng-container *ngIf="!isError; else error">
+    <div class="term-detail-content">
+      <app-term-card class="term-detail-summary" [term]=term></app-term-card>
+      <div class="term-sessions">
+        <div class="term-sessions-header">
+          <h2>Sesiones del {{term.termNumber}}º trimestre</h2>
+          <div class="term-sessions-progress">{{term.completedSessions}}/{{term.totalSessions}}</div>
+        </div>
+        <div class="term-sessions-list">
+          <app-session-card *ngFor="let session of sessions" [session]="session"></app-session-card>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-template #error>
+    <h2 class="error">{{ errorMessage }}</h2>
+  </ng-template>
 </div>

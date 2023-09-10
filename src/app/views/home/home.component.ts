@@ -17,6 +17,9 @@ export class HomeComponent {
   terms!: UserTerm[];
   currentCourse!: CourseId;
 
+  isError: boolean = false;
+  errorMessage: string = '';
+
   private settingsSubscription!: Subscription;
 
   constructor(
@@ -25,7 +28,7 @@ export class HomeComponent {
     private menuService: MenuService
   ) {}
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     this.settingsSubscription = this.settingsService.settings$.subscribe(() => {
       this.getCurrentCourse();
       this.getTermProgress(this.currentCourse);
@@ -34,16 +37,25 @@ export class HomeComponent {
     this.nextSession = this.userProgressService.getNextSession();
   }
 
-  ngOnDestroy() : void {
+  ngOnDestroy(): void {
     this.settingsSubscription.unsubscribe();
   }
 
-  getCurrentCourse() : void {
+  getCurrentCourse(): void {
     this.currentCourse = this.settingsService.getCourse();
   }
 
-  getTermProgress(courseId: CourseId) : void {
-    this.terms = this.userProgressService.getTermProgressByCourse(courseId);
+  getTermProgress(courseId: CourseId): void {
+    try {
+      this.terms = this.userProgressService.getTermProgressByCourse(courseId);
+      if (this.terms.length === 0) {
+        this.isError = true;
+        this.errorMessage = `No data found for course ${courseId}`;
+      }
+    } catch (error) {
+      this.isError = true;
+      this.errorMessage = 'Could not load your progress';
+    }
   }
 
   isBlurActive() {
