@@ -14,21 +14,15 @@ import { MenuService } from 'src/app/services/menu-service/menu.service';
   templateUrl: './term-detail.component.html',
   styleUrls: ['./term-detail.component.scss'],
 })
-export class TermDetailComponent implements OnInit {
+export class TermDetailComponent {
   courseId: CourseId = '3i';
   termId: number = 0;
-  term: UserTerm = {
-    courseId: '3i',
-    termNumber: this.termId,
-    totalSessions: 0,
-    completedSessions: 0,
-    isCompleted: false,
-  };
+  term!: UserTerm;
   sessions: UserSession[] = [];
   isBlur: boolean = false;
 
   private routeParamsSubscription!: Subscription;
-  menuSubscription!: Subscription;
+  private menuSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,

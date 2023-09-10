@@ -18,8 +18,8 @@ export class HomeComponent {
   currentCourse!: CourseId;
   isBlur: boolean = false;
 
-  settingsSubscription!: Subscription;
-  menuSubscription!: Subscription;
+  private settingsSubscription!: Subscription;
+  private menuSubscription!: Subscription;
 
   constructor(
     private userProgressService: UserProgressService,
