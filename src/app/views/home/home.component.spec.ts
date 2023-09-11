@@ -8,6 +8,8 @@ import { of } from 'rxjs';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { IconComponent } from 'src/app/components/icon/icon.component';
 import { TermCardComponent } from 'src/app/components/term-card/term-card.component';
+import { Session } from 'src/app/models/session.interface';
+import { UserTerm } from 'src/app/models/userTerm';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -16,8 +18,56 @@ describe('HomeComponent', () => {
   let settingsService: jasmine.SpyObj<SettingsService>;
   let menuService: jasmine.SpyObj<MenuService>;
 
+  const mockNextSession: Session = {
+    _id: '3i-2-3',
+    courseId: '3i',
+    term: 2,
+    sessionNumber: 3,
+    title: 'Num. 3 del trimestre 2 del curso 3º de Infantil',
+  }
+
+  const mockAfterNextSession : Session = {
+    _id: '3i-2-4',
+    courseId: '3i',
+    term: 2,
+    sessionNumber: 4,
+    title: 'Num. 4 del trimestre 2 del curso 3º de Infantil',
+  }
+
+  const mockRandomSession : Session = {
+    _id: '3i-1-1',
+    courseId: '3i',
+    term: 1,
+    sessionNumber: 1,
+    title: 'Num. 1 del trimestre 2 del curso 3º de Infantil',
+  }
+
+  const mockTermProgress : UserTerm[] = [
+    {
+      courseId: '3i',
+      termNumber: 1,
+      totalSessions: 10,
+      completedSessions: 10,
+      isCompleted: true,
+    },
+    {
+      courseId: '3i',
+      termNumber: 2,
+      totalSessions: 10,
+      completedSessions: 2,
+      isCompleted: false,
+    },
+    {
+      courseId: '3i',
+      termNumber: 3,
+      totalSessions: 10,
+      completedSessions: 0,
+      isCompleted: false,
+    },
+  ]
+
   beforeEach(async () => {
-    const userProgressServiceSpy = jasmine.createSpyObj('UserProgressService', ['getNextSession', 'getTermProgressByCourse']);
+    const userProgressServiceSpy = jasmine.createSpyObj('UserProgressService', ['getNextSession', 'getTermProgressByCourse', 'getAfterNextSession' ,'getRandomSession']);
     const settingsServiceSpy = jasmine.createSpyObj('SettingsService', ['getCourse']);
     const menuServiceSpy = jasmine.createSpyObj('MenuService', ['isBlurActive$']);
 
@@ -30,9 +80,6 @@ describe('HomeComponent', () => {
       ],
       imports: [RouterTestingModule]
     }).compileComponents();
-
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
 
     userProgressService = TestBed.inject(UserProgressService) as jasmine.SpyObj<UserProgressService>;
     settingsService = TestBed.inject(SettingsService) as jasmine.SpyObj<SettingsService>;
@@ -47,38 +94,18 @@ describe('HomeComponent', () => {
 
     menuServiceSpy.isBlurActive$ = of(false);
 
-    userProgressServiceSpy.getNextSession.and.returnValue({
-      _id: '3i-2-3',
-      courseId: '3i',
-      term: 2,
-      sessionNumber: 3,
-      title: 'Num. 3 del trimestre 2 del curso 3º de Infantil',
-    });
+    userProgressServiceSpy.getNextSession.and.returnValue(mockNextSession);
 
-    userProgressServiceSpy.getTermProgressByCourse.and.returnValue([
-      {
-        courseId: '3i',
-        termNumber: 1,
-        totalSessions: 10,
-        completedSessions: 10,
-        isCompleted: true,
-      },
-      {
-        courseId: '3i',
-        termNumber: 2,
-        totalSessions: 10,
-        completedSessions: 2,
-        isCompleted: false,
-      },
-      {
-        courseId: '3i',
-        termNumber: 3,
-        totalSessions: 10,
-        completedSessions: 0,
-        isCompleted: false,
-      },
-    ]);
+    userProgressServiceSpy.getAfterNextSession.and.returnValue(mockAfterNextSession);
 
+    userProgressServiceSpy.getRandomSession.and.returnValue(mockRandomSession);
+
+    userProgressServiceSpy.getTermProgressByCourse.and.returnValue(mockTermProgress);
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
