@@ -13,7 +13,7 @@ export class ButtonComponent {
   @Input() buttonText: string = '';
   @Input() rawToUrl: string = '';
 
-  toUrl: string[] = [''];
+  toUrl: string[] = [];
 
   constructor() {};
 

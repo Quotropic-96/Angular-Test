@@ -47,6 +47,6 @@ describe('ButtonComponent', () => {
   it('should update toUrl on ngOnInit with single string when rawToUrl has no colon', () => {
     component.rawToUrl = 'route';
     fixture.detectChanges();
-    expect(component.toUrl).toEqual(['', 'route']);
+    expect(component.toUrl).toEqual(['route']);
   });
 });
