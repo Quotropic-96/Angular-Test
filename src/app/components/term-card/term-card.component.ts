@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserTerm } from 'src/app/models/userTerm';
+import { UserTerm, defaultUserTerm } from 'src/app/models/userTerm';
 
 @Component({
   selector: 'app-term-card',
@@ -7,13 +7,7 @@ import { UserTerm } from 'src/app/models/userTerm';
   styleUrls: ['./term-card.component.scss'],
 })
 export class TermCardComponent {
-  @Input() term: UserTerm = {
-      courseId: '3i',
-      termNumber: 1,
-      totalSessions: 0,
-      completedSessions: 0,
-      isCompleted: false
-  };
+  @Input() term: UserTerm = defaultUserTerm;
 
   graphSize: number = 60;
   iconSize: number = 30;
