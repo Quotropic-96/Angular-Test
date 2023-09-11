@@ -103,4 +103,9 @@ export class UserProgressService {
   saveNextSession(nextSession: Session): void {
     localStorage.setItem('nextSession', JSON.stringify(nextSession));
   }
+
+  getRandomSession() : Session {
+    const sessions = this.contentService.getAllSessions();
+    return sessions[Math.floor(Math.random() * sessions.length)];
+  }
 }

@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent {
   nextSession!: Session | null;
+  randomSession!: Session;
   terms!: UserTerm[];
   currentCourse!: CourseId;
 
@@ -35,6 +36,7 @@ export class HomeComponent {
     });
 
     this.nextSession = this.userProgressService.getNextSession();
+    this.randomSession = this.userProgressService.getRandomSession();
   }
 
   ngOnDestroy(): void {

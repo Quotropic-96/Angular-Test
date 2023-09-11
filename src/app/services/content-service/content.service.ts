@@ -21,6 +21,10 @@ export class ContentService {
     return this.courses;
   }
 
+  getAllSessions() : Session[] {
+    return this.sessions;
+  }
+
   getTermsByCourse(courseId: string) : Term[] {
     return this.terms.filter(term => term.courseId === courseId);
   }

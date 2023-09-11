@@ -16,6 +16,7 @@
           buttonText="Reproducción ordenada"
         ></app-button>
         <app-button
+        [routerLink]="['/start-session', randomSession._id]"
           [isPrimary]="false"
           [isActive]="true"
           [isIcon]="true"
