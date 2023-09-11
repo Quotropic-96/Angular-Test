@@ -18,6 +18,7 @@ import { ContentService } from './services/content-service/content.service';
 import { SettingsService } from './services/settings-service/settings.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
+import { UserProgressService } from './services/user-progress-service/user-progress.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     MenuComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatSelectModule],
-  providers: [MenuService, ContentService, SettingsService],
+  providers: [MenuService, ContentService, SettingsService, UserProgressService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
