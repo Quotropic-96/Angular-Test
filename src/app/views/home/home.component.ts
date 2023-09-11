@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent {
   nextSession!: Session | null;
+  afterNextSession!: Session | null;
   randomSession!: Session;
   terms!: UserTerm[];
   currentCourse!: CourseId;
@@ -36,6 +37,7 @@ export class HomeComponent {
     });
 
     this.nextSession = this.userProgressService.getNextSession();
+    this.afterNextSession = this.userProgressService.getAfterNextSession();
     this.randomSession = this.userProgressService.getRandomSession();
   }
 

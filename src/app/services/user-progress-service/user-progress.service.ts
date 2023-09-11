@@ -108,4 +108,23 @@ export class UserProgressService {
     const sessions = this.contentService.getAllSessions();
     return sessions[Math.floor(Math.random() * sessions.length)];
   }
+
+  getAfterNextSession(): Session | null {
+    const nextSession = this.getNextSession();
+    if (!nextSession) return null;
+    
+    const termProgress = this.getSingleTermProgress(nextSession.courseId, nextSession.term);
+    let afterNextSessionId: string;
+
+    if (nextSession.sessionNumber + 1 <= termProgress.totalSessions) {
+      afterNextSessionId = nextSession.courseId + '-' + nextSession.term.toString() + '-' + (nextSession.sessionNumber + 1).toString();
+    } else if (nextSession.term < 3) {
+      afterNextSessionId = nextSession.courseId + '-' + (nextSession.term + 1).toString() + '-1';
+    } else if (nextSession.courseId !== '5i') {
+      afterNextSessionId = (parseInt(nextSession.courseId[0]) + 1).toString() + '-1-1';
+    } else {
+      return null;
+    }
+    return this.contentService.getSessionById(afterNextSessionId);
+  }
 }

@@ -8,7 +8,7 @@
       </p>
       <div class="home-button-container">
         <app-button
-          [routerLink]="['/start-session', nextSession._id]"
+          [rawToUrl]="'/start-session/:' + nextSession._id.toString()"
           [isPrimary]="true"
           [isActive]="true"
           [isIcon]="true"
@@ -16,7 +16,7 @@
           buttonText="Reproducción ordenada"
         ></app-button>
         <app-button
-        [routerLink]="['/start-session', randomSession._id]"
+          [rawToUrl]="'/start-session/:' + randomSession._id.toString()"
           [isPrimary]="false"
           [isActive]="true"
           [isIcon]="true"
@@ -24,6 +24,7 @@
           buttonText="Aleatorio"
         ></app-button>
         <app-button
+          [rawToUrl]="afterNextSession ? '/start-session/:' + afterNextSession._id.toString() : ''"
           [isPrimary]="false"
           [isActive]="true"
           [isIcon]="true"
