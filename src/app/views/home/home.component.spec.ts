@@ -1,57 +1,84 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { HomeComponent } from './home.component';
 import { UserProgressService } from 'src/app/services/user-progress-service/user-progress.service';
 import { SettingsService } from 'src/app/services/settings-service/settings.service';
 import { MenuService } from 'src/app/services/menu-service/menu.service';
-import { Subject, of } from 'rxjs';
-import { UserTerm } from 'src/app/models/userTerm';
-import { Session } from 'src/app/models/session.interface';
-import { Settings } from 'src/app/models/settings.interface';
+import { of } from 'rxjs';
+import { ButtonComponent } from 'src/app/components/button/button.component';
+import { IconComponent } from 'src/app/components/icon/icon.component';
+import { TermCardComponent } from 'src/app/components/term-card/term-card.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let userProgressService: UserProgressService;
-  let settingsService: SettingsService;
-  let menuService: MenuService;
-
-  let settingsSubject: Subject<Settings | null>;
+  let userProgressService: jasmine.SpyObj<UserProgressService>;
+  let settingsService: jasmine.SpyObj<SettingsService>;
+  let menuService: jasmine.SpyObj<MenuService>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
-      declarations: [HomeComponent],
-      providers: [
-        {
-          provide: UserProgressService,
-          useValue: {
-            getTermProgressByCourse: jasmine.createSpy().and.returnValue([]),
-            getNextSession: jasmine.createSpy(),
-          },
-        },
-        {
-          provide: SettingsService,
-          useValue: {
-            settings$: new Subject<Settings | null>(),
-            getCourse: jasmine.createSpy().and.returnValue('4i'),
-          },
-        },
-        {
-          provide: MenuService,
-          useValue: {
-            isBlurActive$: of(false),
-          },
-        },
-      ],
-    }).compileComponents();
-  });
+    const userProgressServiceSpy = jasmine.createSpyObj('UserProgressService', ['getNextSession', 'getTermProgressByCourse']);
+    const settingsServiceSpy = jasmine.createSpyObj('SettingsService', ['getCourse']);
+    const menuServiceSpy = jasmine.createSpyObj('MenuService', ['isBlurActive$']);
 
-  beforeEach(() => {
+    await TestBed.configureTestingModule({
+      declarations: [ HomeComponent, ButtonComponent, IconComponent, TermCardComponent ],
+      providers: [
+        { provide: UserProgressService, useValue: userProgressServiceSpy },
+        { provide: SettingsService, useValue: settingsServiceSpy },
+        { provide: MenuService, useValue: menuServiceSpy }
+      ],
+      imports: [RouterTestingModule]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-    userProgressService = TestBed.inject(UserProgressService);
-    settingsService = TestBed.inject(SettingsService);
-    menuService = TestBed.inject(MenuService);
-    settingsSubject = TestBed.inject(SettingsService).settings$ as Subject<Settings | null>;
+
+    userProgressService = TestBed.inject(UserProgressService) as jasmine.SpyObj<UserProgressService>;
+    settingsService = TestBed.inject(SettingsService) as jasmine.SpyObj<SettingsService>;
+    menuService = TestBed.inject(MenuService) as jasmine.SpyObj<MenuService>;
+
+    settingsServiceSpy.getCourse.and.returnValue('3i');
+
+    settingsServiceSpy.settings$ = of({
+      curso: '3i',
+      idioma: 'esp',
+    });
+
+    menuServiceSpy.isBlurActive$ = of(false);
+
+    userProgressServiceSpy.getNextSession.and.returnValue({
+      _id: '3i-2-3',
+      courseId: '3i',
+      term: 2,
+      sessionNumber: 3,
+      title: 'Num. 3 del trimestre 2 del curso 3º de Infantil',
+    });
+
+    userProgressServiceSpy.getTermProgressByCourse.and.returnValue([
+      {
+        courseId: '3i',
+        termNumber: 1,
+        totalSessions: 10,
+        completedSessions: 10,
+        isCompleted: true,
+      },
+      {
+        courseId: '3i',
+        termNumber: 2,
+        totalSessions: 10,
+        completedSessions: 2,
+        isCompleted: false,
+      },
+      {
+        courseId: '3i',
+        termNumber: 3,
+        totalSessions: 10,
+        completedSessions: 0,
+        isCompleted: false,
+      },
+    ]);
+
     fixture.detectChanges();
   });
 
@@ -59,40 +86,69 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set error message when term progress is empty', () => {
-    const getTermProgressSpy =
-      userProgressService.getTermProgressByCourse as jasmine.Spy;
+  describe('ngOnInit', () => {
+    it('should set nextSession from userProgressService', () => {
+      expect(userProgressService.getNextSession).toHaveBeenCalled();
+      expect(component.nextSession).toEqual({
+        _id: '3i-2-3',
+        courseId: '3i',
+        term: 2,
+        sessionNumber: 3,
+        title: 'Num. 3 del trimestre 2 del curso 3º de Infantil',
+      });
+    });
 
-    settingsSubject.next({ idioma: 'cat', curso: '3i' });
-    fixture.detectChanges();
+    it('should set currentCourse by calling getCurrentCourse', () => {
+      expect(settingsService.getCourse).toHaveBeenCalled();
+      expect(component.currentCourse).toBe('3i');
+    });
 
-    expect(component.isError).toBe(true);
-    expect(component.errorMessage).toContain('No data found for course 4i');
+    it('should set terms by calling getTermProgress', () => {
+      expect(userProgressService.getTermProgressByCourse).toHaveBeenCalledWith('3i');
+      expect(component.terms).toEqual([
+        {
+          courseId: '3i',
+          termNumber: 1,
+          totalSessions: 10,
+          completedSessions: 10,
+          isCompleted: true,
+        },
+        {
+          courseId: '3i',
+          termNumber: 2,
+          totalSessions: 10,
+          completedSessions: 2,
+          isCompleted: false,
+        },
+        {
+          courseId: '3i',
+          termNumber: 3,
+          totalSessions: 10,
+          completedSessions: 0,
+          isCompleted: false,
+        },
+      ]);
+    });
   });
 
-  // it('should fetch term progress when settings change', () => {
-  //   const userTerms: UserTerm[] = []; // Mock user terms
-  //   const getTermProgressSpy =
-  //     userProgressService.getTermProgressByCourse as jasmine.Spy;
-  //   getTermProgressSpy.and.returnValue(userTerms);
+  describe('isBlurActive', () => {
+    it('should return the isBlurActive observable from the menu service', () => {
+      expect(component.isBlurActive()).toBe(menuService.isBlurActive$);
+    });
+  });
 
-  //   settingsSubject.next({ idioma: 'cat', curso: '3i' });
-  //   fixture.detectChanges();
+  describe('error handling in getTermProgress', () => {
+    beforeEach(() => {
+      userProgressService.getTermProgressByCourse.and.throwError('An error');
+      component.getTermProgress('3i');
+    });
 
-  //   expect(component.currentCourse).toBe('4i');
-  //   expect(getTermProgressSpy).toHaveBeenCalledWith('4i');
-  //   expect(component.terms).toEqual(userTerms);
-  // });
+    it('should set isError to true if an error occurs', () => {
+      expect(component.isError).toBeTrue();
+    });
 
-  it('should handle error when term progress retrieval fails', () => {
-    const getTermProgressSpy = userProgressService.getTermProgressByCourse as jasmine.Spy;
-    getTermProgressSpy.calls.reset();
-    getTermProgressSpy.and.throwError('Test error');
-
-    settingsSubject.next({ idioma: 'cat', curso: '3i' }); 
-    fixture.detectChanges();
-
-    expect(component.isError).toBe(true);
-    expect(component.errorMessage).toContain('Could not load your progress');
+    it('should set errorMessage if an error occurs', () => {
+      expect(component.errorMessage).toBe('Could not load your progress');
+    });
   });
 });

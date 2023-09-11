@@ -6,7 +6,6 @@ import { user } from 'src/app/data/user';
 import { defaultUserTerm } from 'src/app/models/userTerm';
 import { CourseId } from 'src/app/shared/courseId';
 import { Session } from 'src/app/models/session.interface';
-import { UserSession } from 'src/app/models/userSession.interface';
 
 describe('UserProgressService', () => {
   let userProgressService: UserProgressService;
